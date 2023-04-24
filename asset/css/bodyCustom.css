@@ -1,0 +1,181 @@
+
+@font-face {
+    font-family: NewFont;
+    src: url('../fonts/nobilty.ttf'); 
+    
+}
+
+/*.nav-item
+{
+    font-family: 'myFont';
+    font-size: 19px !important;
+}*/
+
+
+
+.imgNewres {
+ background-color: red;
+}
+
+.imgNewres:hover
+{
+   
+    background:yellow;
+}
+
+
+.parentBox
+{
+    width:auto;
+    height: auto;
+    background: url('../image/Background_image/homepage/landing.jpg'); 
+    
+}
+
+.secondBox
+{
+    width:auto;
+  
+    background: black;
+    border-radius: 25px;
+ margin-bottom: 10px;
+   
+    
+}
+
+
+.secondContentBox
+{
+    width:auto;
+  
+    background: #282d32;
+    border-radius: 25px;
+ margin-bottom: 10px;
+   
+    
+}
+
+
+
+.gifBox
+{
+    
+    width:auto;
+   
+    background: white;
+    border-radius: 25px;
+     
+    
+}
+
+.serachBox{
+    color: black;
+    
+}
+
+.serachBox > input{
+    border: 1px solid red;
+    height: 40px;
+    width: 50%px;
+    text-align: center;
+    border-radius: 25px;
+    margin-bottom: 5px;
+}
+.serachBox > input:focus{
+     border: 1px solid red;
+    border-radius: 25px;
+}
+
+
+.imageBox
+{
+    
+   margin-bottom: 20px;
+   
+  
+   background-color:black;
+   
+   margin: 5px 5px;
+   
+   
+}
+
+
+.endContentBox
+{
+    width:auto;
+    height: auto;
+    background: url('../image/Background_image/game/iF56KKE.jpg')no-repeat ; 
+    
+}
+.aboutContentBox
+{
+    width:auto;
+    height: auto;
+    background: url('../image/Background_image/game/back.jpg')no-repeat ; 
+    background-size: cover;
+}
+
+
+
+.gameViewBox
+{
+     font-family: 'NewFont';
+/*    width: 435px;*/
+    margin: 20px 20px;
+    padding: 10px 10px;
+    height: 300px;
+    background: white;
+    color: black;
+    
+}
+.textLink 
+{
+    text-decoration: none;
+   
+}
+
+
+
+.gameViewUpperBox
+{
+    width: 100%;
+    
+    max-height: 230px;
+    background: white;
+    
+}
+
+
+.fitImage
+{
+    
+    max-width:100%; 
+    min-height: 230px;
+  max-height:230px;
+  border: 1px solid red;
+  margin:auto;
+  display:block;
+}
+
+
+.noReg
+{
+     width:auto;
+    height: auto;
+    background: url('../image/Background_image/game/168402.jpg')no-repeat ; 
+    background-size: cover;
+    color: white;
+}
+
+.fontSelect
+{
+    font-family: 'NewFont';
+}
+
+@media screen and (max-width: 767px) {
+    .btn {
+        width: 100%;
+        margin-bottom: 5px;
+    }
+}

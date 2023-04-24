@@ -1,0 +1,47 @@
+
+@font-face {
+    font-family: "myFirstFont";
+    src: url('../fonts/Super FamiFont.ttf');
+}
+
+.background{
+    
+    height:100%;
+    width: 100%;
+	
+    background: url('../image/Background_image/slider/login2.jpg')no-repeat center center;
+    background-size: cover;
+    color: white;
+     
+}
+  
+.regbackground{
+     font-family: "myFirstFont";
+    height:100%;
+    width: 100%;
+	
+    background: url('../image/Background_image/slider/regback.jpg')no-repeat center center;
+    background-size: cover;
+    color: white;
+     
+}
+
+.boxforReg
+{
+/*    height:550px;  #5b6f76*/
+    width: 200px;
+    max-width: 280px;
+    
+    background: #13181d ;
+   
+    color: #50C1CF;
+    z-index: 1;
+    margin: 15px 30px;
+    
+}
+
+/*#4a5861*/
+
+.contentpricing{
+    opacity: 1;
+}
