@@ -50,5 +50,20 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 |		my-controller/my-method	-> my_controller/my_method
 */
 $route['default_controller'] = 'Main_controller';
+$route['home'] = 'Main_controller';
+$route['login'] = 'Call_controller/login';
+$route['register'] = 'Call_controller/regUser';
+$route['logout'] = 'Call_controller/logout';
+$route['profile'] = 'Call_controller/profile';
+$route['tournament'] = 'Call_controller/tournament';
+$route['about'] = 'Call_controller/about';
+$route['browser'] = 'Call_controller/browser';
+$route['contact'] = 'Call_controller/contact';
+$route['ongoing'] = 'Call_controller/subGameLoad';
+$route['previous'] = 'Call_controller/subGameLoadpast';
+$route['leaderboard'] = 'Call_controller/leaderBoardtListGroupByGame';
+$route['requestForTournament'] = 'Call_controller/requestForTournament';
+$route['searchLoad'] = 'Call_controller/searchLoad';
+
 $route['404_override'] = '';
 $route['translate_uri_dashes'] = FALSE;

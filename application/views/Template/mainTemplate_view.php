@@ -29,16 +29,7 @@ window.addEventListener("load", function(){
   
     
     <div class="loader" id="loader">
-        <span class="Nspan">G</span>
-  <span class="Nspan">A</span>
-  <span class="Nspan">M</span>
-  <span class="Nspan">E</span>
-  <span class="Nspan">S</span>
-  <span class="Nspan">T</span>
-  <span class="Nspan">R</span>
-  <span class="Nspan">A</span>
-  <span class="Nspan">D</span>
-  <span class="Nspan">E</span>
+       
   
   <div class="covers">
     <span class="Nspan"></span>

@@ -1,0 +1,38 @@
+
+@font-face {
+    font-family: myFont;
+    src: url('../fonts/EA Logo.ttf'); 
+    
+}
+
+#newheader {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  z-index: 100;
+ 
+    padding: 0px 0px;
+}
+
+
+.navbar-brand
+{
+    
+    margin: 0px 0px;
+    padding: 0px 0px;
+  
+}
+
+.navbar-brand > img {
+	display: inline-block;
+	position: top;
+	margin: auto;
+	padding-top: 0px;
+        max-height: 70px;
+	float: left;
+}
+.nav-item
+{
+    font-family: 'myFont';
+    font-size: 19px !important;
+}

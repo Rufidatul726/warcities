@@ -7,7 +7,7 @@ class Tournament_Validation_controller extends CI_Controller {
     public function validateCocReg() {
         $this->load->library('form_validation');
         $this->load->model('admin/Insert_model');
-         $this->load->model('admin/Get_model');
+        $this->load->model('admin/Get_model');
        
 
         $config = array(
@@ -80,17 +80,18 @@ class Tournament_Validation_controller extends CI_Controller {
                
             );
             
-             $this->Insert_model->insert($regtableName, $userdata);
-             $reguser = $this->Get_model->getLastRow($regtableName);
-                 
-               foreach ($reguser as $row)
-               {
-                   $regid = $row['id'];
-                    
-               }
-             
-             
             
+
+
+            $this->Insert_model->insert($regtableName, $userdata);
+            $reguser = $this->Get_model->getLastRow($regtableName);
+                 
+            foreach ($reguser as $row)
+            {
+               $regid = $row['id'];
+                
+            }
+             
             $data = array
                 (
                 'name' => $this->input->post('playerName'),
@@ -106,12 +107,7 @@ class Tournament_Validation_controller extends CI_Controller {
                 'subtorunamentId' => $this->input->post('subTournameID')
             );
 
-           
-
             $tableName = $this->input->post('table');
-
-
-            
 
             if ($this->Insert_model->insert($tableName, $data)) {
 
@@ -127,12 +123,7 @@ class Tournament_Validation_controller extends CI_Controller {
                }
                 $gameName = "Clash of Clans";
                  $newNameGame = str_replace("%20"," ",$gameName);
-                 return redirect('email/Email_controller/regTournamentUser/'.$getEmail.'/'.$newname.'/'.$newNameGame.'');
-                
-                
-                
-                
-                
+                 return redirect('email/Email_controller/regTournamentUser/'.$getEmail.'/'.$newname.'/'.$newNameGame.''); 
             }
             else {
                 return redirect('Main_controller/errorview');
@@ -303,7 +294,9 @@ class Tournament_Validation_controller extends CI_Controller {
    public function validateGameReg() {
         $this->load->library('form_validation');
         $this->load->model('admin/Insert_model');
-         $this->load->model('admin/Get_model');
+        $this->load->model('admin/Get_model');
+
+        //echo '<pre>';print_r();die();
 
         $config = array(
             array(
@@ -321,97 +314,79 @@ class Tournament_Validation_controller extends CI_Controller {
                 'label' => 'password',
                 'rules' => 'required'
             ),
-            
-            array(
-                'field' => 'gameTagid',
-                'label' => 'TAG ID',
-                'rules' => 'required'
-            ),
             array(
                 'field' => 'mobile',
                 'label' => 'Mobile',
                 'rules' => 'required'
+            ),
+            array(
+                'field' => 'leader_tag_id',
+                'label' => 'Leader Tag Id',
+                'rules' => 'required'
             )
-            
-            
-           
-            
         );
+
+
 
         $this->form_validation->set_rules($config);
 
         if ($this->form_validation->run() == FALSE) {
-              return redirect('Main_controller/errorview');
-        } 
-        
-        else {
-            
-            
-            
+           // echo '<pre>';print_r(validation_errors());die();
+            return redirect('Main_controller/errorview');
+        }else {
             $regtableName= "reguser";
-            
-           $userdata = array
+            $userdata = array
                 (
                 'fullName' => $this->input->post('playerName'),
                 'email' => $this->input->post('email'),
                 'password' =>  md5($this->input->post('password')),
-                'role' => 'REGISER',
+                'role' => 'REGISTER',
                 'paymentstatus' => 'NONE',
-                'mobile' => $this->input->post('mobile')
-               
+                'mobile' => $this->input->post('mobile'),
+                'leader_tag' => $this->input->post('leader_tag_id'),
+                'team_name' => $this->input->post('team_name'),
             );
             
             $this->Insert_model->insert($regtableName, $userdata);
-             $reguser = $this->Get_model->getLastRow($regtableName);
-                 
-               foreach ($reguser as $row)
-               {
-                   $regid = $row['id'];
-                    
-               }
-            
-            
-            
-            
-            $data = array
-                (
+            $reguser = $this->Get_model->getLastRow($regtableName);
+         
+            foreach ($reguser as $row){
+               $regid = $row['id']; 
+            }
+
+            $tagid  = $this->input->post('gameTagid');
+
+            //echo '<pre>';print_r($tagid);die();
+
+            if (empty($tagid) ){
+                $tags = $this->input->post('leader_tag_id');
+                //return redirect('Main_controller/errorview');
+            }else{
+                $tags = implode(',', $this->input->post('gameTagid'));
+            }
+            //echo '<pre>';print_r($data['tagid']);die();
+            $data = array(
                 'name' => $this->input->post('playerName'),
                 'email' => $this->input->post('email'),
-                 'userid' => $regid,
+                'userid' => $regid,
                 'mobile' => $this->input->post('mobile'),
-                'tagid' => $this->input->post('gameTagid'),
+                //'tagid' => $this->input->post('gameTagid'),
+                'tagid' => $tags,
                 'playerPaymentSatus' => "UNPAID",
-                'subtorunamentId' => $this->input->post('subTournameID')
-               
+                'subtorunamentId' => $this->input->post('subTournameID') 
             );
 
-           
-
+            //echo '<pre>';print_r($data['tagid']);die();
             $tableName = $this->input->post('table');
-
-
-            
-
             if ($this->Insert_model->insert($tableName, $data)) {
-                
-                
-             $email = $this->Get_model->getLastRow($tableName);
-                 
-               foreach ($email as $row)
-               {
+                $email = $this->Get_model->getLastRow($tableName);
+                foreach ($email as $row){
                    $getEmail = $row['email'];
                     $getName = $row['name'];
-                    $newname = str_replace("%20"," ",$getName);
-                  
-                   
-               }
+                    $newname = str_replace("%20"," ",$getName); 
+                }
                 $gameName = $this->input->post('gamename');
-                 return redirect('email/Email_controller/regTournamentUser/'.$getEmail.'/'.$newname.'/'.$gameName.'');
-                
-                
-                
-                
-                
+                return redirect('email/Email_controller/regTournamentUser/'.$getEmail.'/'.$newname.'/'.$gameName.'');    
             }
             else {
                 return redirect('Main_controller/errorview');
@@ -646,7 +621,7 @@ class Tournament_Validation_controller extends CI_Controller {
                     );
 
                     $this->Update_model->updateAnydata($tableName, $data, $id);
-                     return redirect('Call_controller/successview');
+                    return redirect('Call_controller/successview');
                 } else {
 
                     $error = array('error' => $this->upload->display_errors());
@@ -686,8 +661,82 @@ class Tournament_Validation_controller extends CI_Controller {
            // echo curl_error($ch);
     }
     
-    
-    
-    
+    public function requestForTour() {
+        $this->load->library('form_validation');
+        $this->load->model('admin/Insert_model');
+        $this->load->model('admin/Get_model');
+        $this->load->library('session');
+
+       
+
+        // $config = array(
+        //     array(
+        //         'field' => 'game_name',
+        //         'label' => 'Game Name',
+        //     ),
+        //     array(
+        //         'field' => 'game_mode',
+        //         'label' => 'Game Mode',
+        //     ),
+        //     array(
+        //         'field' => 'team_and_player_name',
+        //         'label' => 'Team/Player Name'
+        //     ),
+        //     array(
+        //         'field' => 'reg_date_start',
+        //         'label' => 'Registration Start Date'
+        //     ),
+            
+        //     array(
+        //         'field' => 'reg_date_end',
+        //         'label' => 'Village Name'
+        //     ),
+        //     array(
+        //         'field' => 'entry_fee',
+        //         'label' => 'Entry Fee'
+        //     ),
+        //     array(
+        //         'field' => 'rules',
+        //         'label' => 'Rules'
+        //     ),
+           
+        //      array(
+        //         'field' => 'contact_no',
+        //         'label' => 'Contact No.'
+        //     ),
+        //     array(
+        //         'field' => 'fixture',
+        //         'label' => 'Fixture'
+        //     )
+        // );
+
+        // echo'<pre>';print_r($this->form_validation->run());die();
+
+        // $this->form_validation->set_rules($config);
+
+        // if ($this->form_validation->run() == FALSE) {
+        //       return redirect('Main_controller/errorview');
+        // } else {
+            
+        $regtableName= "request_for_tournamet";
+        $userdata = array
+            (
+            'game_name' => $this->input->post('game_name'),
+            'game_mode' => $this->input->post('game_mode'),
+            'team_or_player_name' => $this->input->post('team_and_player_name'),
+            'reg_start' => $this->input->post('reg_date_start'),
+            'reg_end' => $this->input->post('reg_date_end'),
+            'entry_fee' => $this->input->post('entry_fee'),
+            'rules' => $this->input->post('rules'),
+            'contact_no' => $this->input->post('contact_no'),
+            'fixture' => $this->input->post('fixture'),
+            'extra_info' => $this->input->post('extra_info'),
+           
+        );
+        
+        $this->Insert_model->insert($regtableName, $userdata);
+        return redirect('Call_controller/successview');
+        //}
+    }
 
 }

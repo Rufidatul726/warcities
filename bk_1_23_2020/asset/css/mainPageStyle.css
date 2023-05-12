@@ -1,0 +1,71 @@
+html,body{
+    margin: 0px;
+    padding: 0px;
+    background: white;
+    height: 100%;
+    width: 100%;
+}
+
+
+
+/*.navbar-brand {
+  padding: 0px;  
+}
+.navbar-brand>img {
+  height: 100%;
+  padding: 2px;  
+  width: 100%;
+}*/
+
+.navbar-default {
+    background-color: white;
+    border-color:whitesmoke;
+    height: 60px;
+}
+.navbar-default .navbar-brand {
+    color: #0f25c1;
+    line-height: 35px;
+}
+
+.navbar-default .navbar-brand:hover,
+.navbar-default .navbar-brand:focus {
+    color: #001ad0;
+}
+
+
+
+.navbar-default .navbar-nav > li > a {
+    color: #0f25c1;
+    line-height: 50px;
+    padding: 2px 20px;
+      background-color: white;
+}
+.navbar-default .navbar-nav > li > a:hover,
+.navbar-default .navbar-nav > li > a:focus {
+    border-bottom: 2px solid #001ad0; 
+    color: #001ad0;
+      background-color: white;
+}
+
+
+
+.tranding{
+    background: white;
+}
+.cardgame{
+    float: left;
+    margin: 10px 10px;
+}
+
+.contactsection{
+    height:600px;
+    width: 100%;
+    background: white;
+    color: black;
+    box-shadow: 10px 10px 5px #888;
+}
+.navbar-nav.navbar-center {
+    position: absolute;
+    left: 50%;
+    transform: translatex(-50%);
+}

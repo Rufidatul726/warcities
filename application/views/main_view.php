@@ -39,7 +39,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="#">GAME TRADE</a>
+      <!-- <a class="navbar-brand" href="#">GAME TRADE</a> -->
     </div>
 
     <!-- Collect the nav links, forms, and other content for toggling -->

@@ -13,21 +13,11 @@ defined('BASEPATH') OR exit('No direct script access allowed');
         <meta name="author" content="BrainChild">    
         <link rel="icon" href="<?= base_url() ?>asset/image/icone/Fevicon.png" type="image/gif" />
 
-
-
         <link href="<?= base_url() ?>asset/css/style.css" rel="stylesheet" type="text/css"/>
-
         <link href="<?= base_url() ?>asset/css/jquery-ui.css" rel="stylesheet" type="text/css"/>
         <link href="<?= base_url() ?>asset/css/subPageStyle.css" rel="stylesheet" type="text/css"/>
-
 <!--        <script src="<?= base_url() ?>asset/js/jquery-3.1.1.min.js" type="text/javascript"></script>-->
       <script src="<?= base_url() ?>asset/js/bootstrap.min.js" type="text/javascript"></script>
-
-
-
-
-
-
     </head>
 
 
@@ -78,47 +68,21 @@ defined('BASEPATH') OR exit('No direct script access allowed');
 
                     <div class="w3_agileits_main_grid w3l_main_grid">
                         <span class="agileits_grid">
-                            <label>Mobil Number </label>
+                            <label>Mobile Number </label>
                             <input type="text" name="mobile" id="mobile"placeholder="Phone Number" required=""   onblur="return isMObileNumber();">
                             <span class="text-center"id="mobileError"></span>
                         </span>
                     </div>
-
-
-
-
-
-
-
                     <div class="w3_main_grid">
                         <div class="w3_main_grid_right">
-                           <input id="myBtn"type="submit" value="Submit">
+                           <input name="password-reset-token" id="myBtn"type="submit" value="Submit">
                         </div>
                     </div>
-
-                  
-
                     <input class="inputBox" type="hidden" name="table" value="reguser" >
-
                     <?php echo form_close(); ?>         
-
-
-
-
-
-
                 </div>
-
-
-
-
-
                 <br>
-
-
             </div>
-
-
         </div>
         <!-- //footer -->
         <hr>
@@ -157,7 +121,7 @@ defined('BASEPATH') OR exit('No direct script access allowed');
             {
 
                 var name = document.getElementById('playerName').value;
-                 var btn = document.getElementById('myBtn');
+                var btn = document.getElementById('myBtn');
                 var tEmail = document.getElementById('email').value;
                 var mobile = document.getElementById('mobile').value;
                 var passw = document.getElementById('password').value;
@@ -177,8 +141,8 @@ defined('BASEPATH') OR exit('No direct script access allowed');
               
                else
                 {
-                     document.getElementById("myBtn").disabled = true;
-                     btn.value = 'Posting...'
+                    document.getElementById("myBtn").disabled = true;
+                    btn.value = 'Posting...'
                     return true;
                 }
 
